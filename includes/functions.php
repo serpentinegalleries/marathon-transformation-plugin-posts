@@ -122,16 +122,47 @@ function rpwe_get_recent_posts( $args = array() ) {
 					// Start recent posts markup.
 					$html .= '<div class="text">';
 
-						$html .= '<h5><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h5>';
+						$html .= '<div class="container">';
+
+							$html .= '<div class="row">';
+
+								$html .= '<div class="col-lg-8">';
+
+									$html .= '<h5><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h5>';
 
 
-						if ( $args['excerpt'] ) :
-							$html .= '<div class="rpwe-summary"><p>';
-								$html .= wp_trim_words( apply_filters( 'rpwe_excerpt', get_the_excerpt() ), $args['length'], ' &hellip;</p>' );
+									if ( $args['excerpt'] ) :
+										$html .= '<div class="rpwe-summary"><p>';
+											$html .= get_the_excerpt();
+										$html .= '</p></div>';
+									endif;
+
+								$html .= '</div>';
+
+								$html .= '<div class="col-lg-2 col-lg-offset-2">';
+
+								$html .= '</div>';
+
 							$html .= '</div>';
-						endif;
 
-						$html .= '<div class="post-content">' . get_the_content() . '</div>';
+							$html .= '<div class="row content-body">';
+
+								$html .= '<div class="col-lg-8">';
+
+									$html .= '<div class="post-content">' . get_the_content() . '<br><a href="' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a></div>';
+
+								$html .= '</div>';
+
+								$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
+
+									$html .= 'Share<p><a class="icon-close" href="' . get_post_meta(get_the_title(), 'facebook', true) . '" target="_blank"></p>';
+
+
+								$html .= '</div>';
+
+							$html .= '</div>';
+
+						$html .= '</div>';
 
 					$html .= '</div>';
 
