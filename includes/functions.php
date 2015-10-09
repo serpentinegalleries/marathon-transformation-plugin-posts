@@ -132,7 +132,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 
 									if ( $args['excerpt'] ) :
-										$html .= '<div><p>';
+										$html .= '<div><p><glyph glyph-name="facebook-5"></glyph></a>';
 											$html .= get_the_excerpt();
 										$html .= '</p></div>';
 									endif;
