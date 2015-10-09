@@ -1,18 +1,21 @@
 <?php
 /**
- * Plugin Name:  Recent Posts Widget Extended
- * Plugin URI:   https://themephe.com/items/recent-posts-widget-extended/
+ * Plugin Name:  Marathon Transformation Participants Posts
+ * Plugin URI:   https://github.com/serpentinegalleries/marathon-transformation-plugin-posts
  * Description:  Enables advanced widget that gives you total control over the output of your site’s most recent Posts.
- * Version:      0.9.9.3
- * Author:       Satrya
- * Author URI:   https://themephe.com/
- * Author Email: satrya@themephe.com
+ * Version:      0.1
+ * Author:       Kei / Satrya
+ * Author URI:   https://ourmachine.net
+ * Author Email: kei@ourmachine.net
  * Text Domain:  recent-posts-widget-extended
  * Domain Path:  /languages
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
  * General Public License as published by the Free Software Foundation; either version 2 of the License, 
  * or (at your option) any later version.
+ * 
+ * This plugin is an iteration of the Recent_Posts_Widget_Extended by Satrya Copyright (c) 2014.
+ *
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without 
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -22,8 +25,8 @@
  *
  * @package    Recent_Posts_Widget_Extended
  * @since      0.1
- * @author     Satrya
- * @copyright  Copyright (c) 2014, Satrya
+ * @author     Kei
+ * @copyright  Copyright (c) 2015, Kei
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  */
 

@@ -107,9 +107,8 @@ function rpwe_get_recent_posts( $args = array() ) {
 	if ( $posts->have_posts() ) :
 
 		// Recent posts wrapper
-		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="rpwe-block ' . ( ! empty( $args['css_class'] ) ? '' . sanitize_html_class( $args['css_class'] ) . '' : '' ) . '">';
+		$html = '<div ' . ( ! empty( $args['cssID'] ) ? 'id="' . sanitize_html_class( $args['cssID'] ) . '"' : '' ) . ' class="participants-list ' . ( ! empty( $args['css_class'] ) ? '' . sanitize_html_class( $args['css_class'] ) . '' : '' ) . '">';
 
-			$html .= '<ul class="rpwe-ul">';
 
 				while ( $posts->have_posts() ) : $posts->the_post();
 
@@ -121,93 +120,26 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
 
 					// Start recent posts markup.
-					$html .= '<li class="rpwe-li rpwe-clearfix">';
+					$html .= '<div class="text">';
 
-						if ( $args['thumb'] ) :
+						$html .= '<h5><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h5>';
 
-							// Check if post has post thumbnail.
-							if ( has_post_thumbnail() ) :
-								$html .= '<a class="rpwe-img" href="' . esc_url( get_permalink() ) . '"  rel="bookmark">';
-									if ( $image ) :
-										$html .= '<img class="' . esc_attr( $args['thumb_align'] ) . ' rpwe-thumb" src="' . esc_url( $image ) . '" alt="' . esc_attr( get_the_title() ) . '">';
-									else :
-										$html .= get_the_post_thumbnail( get_the_ID(),
-											array( $args['thumb_width'], $args['thumb_height'] ),
-											array(
-												'class' => $args['thumb_align'] . ' rpwe-thumb the-post-thumbnail',
-												'alt'   => esc_attr( get_the_title() )
-											)
-										);
-									endif;
-								$html .= '</a>';
-
-							// If no post thumbnail found, check if Get The Image plugin exist and display the image.
-							elseif ( function_exists( 'get_the_image' ) ) :
-								$html .= get_the_image( array(
-									'height'        => (int) $args['thumb_height'],
-									'width'         => (int) $args['thumb_width'],
-									'image_class'   => esc_attr( $args['thumb_align'] ) . ' rpwe-thumb get-the-image',
-									'image_scan'    => true,
-									'echo'          => false,
-									'default_image' => esc_url( $args['thumb_default'] )
-								) );
-
-							// Display default image.
-							elseif ( ! empty( $args['thumb_default'] ) ) :
-								$html .= sprintf( '<a class="rpwe-img" href="%1$s" rel="bookmark"><img class="%2$s rpwe-thumb rpwe-default-thumb" src="%3$s" alt="%4$s" width="%5$s" height="%6$s"></a>',
-									esc_url( get_permalink() ),
-									esc_attr( $args['thumb_align'] ),
-									esc_url( $args['thumb_default'] ),
-									esc_attr( get_the_title() ),
-									(int) $args['thumb_width'],
-									(int) $args['thumb_height']
-								);
-
-							endif;
-
-						endif;
-
-						$html .= '<h3 class="rpwe-title"><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h3>';
-
-						if ( $args['date'] ) :
-							$date = get_the_date();
-							if ( $args['date_relative'] ) :
-								$date = sprintf( __( '%s ago', 'recent-posts-widget-extended' ), human_time_diff( get_the_date( 'U' ), current_time( 'timestamp' ) ) );
-							endif;
-							$html .= '<time class="rpwe-time published" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
-						elseif ( $args['date_modified'] ) : // if both date functions are provided, we use date to be backwards compatible
-							$date = get_the_modified_date();
-							if ( $args['date_relative'] ) :
-								$date = sprintf( __( '%s ago', 'recent-posts-widget-extended' ), human_time_diff( get_the_modified_date( 'U' ), current_time( 'timestamp' ) ) );
-							endif;
-							$html .= '<time class="rpwe-time modfied" datetime="' . esc_html( get_the_modified_date( 'c' ) ) . '">' . esc_html( $date ) . '</time>';
-						endif;
-
-						if ( $args['comment_count'] ) :
-							if ( get_comments_number() == 0 ) {
-									$comments = __( 'No Comments', 'recent-posts-widget-extended' );
-								} elseif ( get_comments_number() > 1 ) {
-									$comments = sprintf( __( '%s Comments', 'recent-posts-widget-extended' ), get_comments_number() );
-								} else {
-									$comments = __( '1 Comment', 'recent-posts-widget-extended' );
-								}
-							$html .= '<a class="rpwe-comment comment-count" href="' . get_comments_link() . '">' . $comments . '</a>';
-						endif;
 
 						if ( $args['excerpt'] ) :
-							$html .= '<div class="rpwe-summary">';
-								$html .= wp_trim_words( apply_filters( 'rpwe_excerpt', get_the_excerpt() ), $args['length'], ' &hellip;' );
-								if ( $args['readmore'] ) :
-									$html .= '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . $args['readmore_text'] . '</a>';
-								endif;
+							$html .= '<div class="rpwe-summary"><p>';
+								$html .= wp_trim_words( apply_filters( 'rpwe_excerpt', get_the_excerpt() ), $args['length'], ' &hellip;</p>' );
 							$html .= '</div>';
 						endif;
 
-					$html .= '</li>';
+						$html .= '<div class="post-content">' . get_the_content() . '</div>';
+
+					$html .= '</div>';
+
+					$html .= '<hr>';
+
 
 				endwhile;
 
-			$html .= '</ul>';
 
 		$html .= '</div><!-- Generated by http://wordpress.org/plugins/recent-posts-widget-extended/ -->';
 
@@ -306,8 +238,5 @@ function rpwe_get_posts( $args = array() ) {
  */
 function rpwe_custom_styles() {
 	?>
-<style>
-.rpwe-block ul{list-style:none!important;margin-left:0!important;padding-left:0!important;}.rpwe-block li{border-bottom:1px solid #eee;margin-bottom:10px;padding-bottom:10px;list-style-type: none;}.rpwe-block a{display:inline!important;text-decoration:none;}.rpwe-block h3{background:none!important;clear:none;margin-bottom:0!important;margin-top:0!important;font-weight:400;font-size:12px!important;line-height:1.5em;}.rpwe-thumb{border:1px solid #EEE!important;box-shadow:none!important;margin:2px 10px 2px 0;padding:3px!important;}.rpwe-summary{font-size:12px;}.rpwe-time{color:#bbb;font-size:11px;}.rpwe-comment{color:#bbb;font-size:11px;padding-left:5px;}.rpwe-alignleft{display:inline;float:left;}.rpwe-alignright{display:inline;float:right;}.rpwe-aligncenter{display:block;margin-left: auto;margin-right: auto;}.rpwe-clearfix:before,.rpwe-clearfix:after{content:"";display:table !important;}.rpwe-clearfix:after{clear:both;}.rpwe-clearfix{zoom:1;}
-</style>
 	<?php
 }
