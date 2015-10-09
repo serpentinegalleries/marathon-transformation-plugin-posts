@@ -120,7 +120,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
 
 					// Start recent posts markup.
-					$html .= '<div class="text">';
+					$html .= '<div class="participant-text">';
 
 						$html .= '<div class="container">';
 
@@ -128,11 +128,11 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-8">';
 
-									$html .= '<h5><a href="' . esc_url( get_permalink() ) . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'recent-posts-widget-extended' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a></h5>';
+									$html .= '<h5><a href="/#'. sanitize_title(get_the_title())  . '" class="participant-title">' . esc_attr( get_the_title() ) . '</a></h5>';
 
 
 									if ( $args['excerpt'] ) :
-										$html .= '<div class="rpwe-summary"><p>';
+										$html .= '<div><p>';
 											$html .= get_the_excerpt();
 										$html .= '</p></div>';
 									endif;
@@ -145,17 +145,17 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							$html .= '</div>';
 
-							$html .= '<div class="row content-body">';
+							$html .= '<div class="row participant-body">';
 
 								$html .= '<div class="col-lg-8">';
 
-									$html .= '<div class="post-content">' . get_the_content() . '<br><a href="' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a></div>';
+									$html .= '<div class="participant-content">' . get_the_content() . '<br><a href="//' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a></div>';
 
 								$html .= '</div>';
 
 								$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
 
-									$html .= 'Share<p><a class="icon-close" href="' . get_post_meta(get_the_title(), 'facebook', true) . '" target="_blank"></p>';
+									$html .= 'Share<p><a class="icon-facebook" href="' . get_post_meta(get_the_title(), 'facebook', true) . '" target="_blank"></a></p>';
 
 
 								$html .= '</div>';
