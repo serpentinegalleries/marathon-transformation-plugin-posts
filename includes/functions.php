@@ -141,7 +141,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-2 col-lg-offset-2">';
 
-									$html .= '<h6 class="participant-hide icon-star"></h6>';
+									$html .= '<div class="participant-hide"><h2>&times;</h2></div>';
 
 								$html .= '</div>';
 
