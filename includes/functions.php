@@ -128,7 +128,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-8">';
 
-									$html .= '<h5><a href="/#'. sanitize_title(get_the_title())  . '" class="participant-title">' . esc_attr( get_the_title() ) . '</a></h5>';
+									$html .= '<h5><a id="' . sanitize_title(get_the_title()) . '" class="participant-title">' . esc_attr( get_the_title() ) . '</a></h5>';
 
 
 									if ( $args['excerpt'] ) :
@@ -157,8 +157,12 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
 
-									$html .= 'Share<p><a class="icon-facebook" href="' . get_post_meta(get_the_title(), 'facebook', true) . '" target="_blank"></a></p>';
+									$html .= 'Share';
 
+									$html .= '<p><a class="icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"></a></p>';
+
+
+									$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
 
 								$html .= '</div>';
 
