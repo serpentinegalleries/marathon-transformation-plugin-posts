@@ -120,7 +120,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
 
 					// Start recent posts markup.
-					$html .= '<div class="participant-text">';
+					$html .= '<div class="participant-text"><a class="participant-url" name="' . sanitize_title(get_the_title()). '"></a>';
 
 						$html .= '<div class="container">';
 
