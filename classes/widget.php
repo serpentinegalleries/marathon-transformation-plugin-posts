@@ -130,6 +130,9 @@ class Recent_Posts_Widget_Extended extends WP_Widget {
 		$instance['before']           = stripslashes( $new_instance['before'] );
 		$instance['after']            = stripslashes( $new_instance['after'] );
 
+		$instance['share_icons']   	  = isset( $new_instance['share_icons'] ) ? (bool) $new_instance['share_icons'] : false;
+
+
 		return $instance;
 
 	}

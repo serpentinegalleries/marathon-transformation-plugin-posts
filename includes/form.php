@@ -218,6 +218,13 @@
 	<?php } ?>
 
 	<p>
+		<input id="<?php echo $this->get_field_id( 'share_icons' ); ?>" name="<?php echo $this->get_field_name( 'share_icons' ); ?>" type="checkbox" <?php checked( $instance['share_icons'] ); ?> />
+		<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>">
+			<?php _e( 'Display Share Icons', 'recent-posts-widget-extended' ); ?>
+		</label>
+	</p>
+
+	<p>
 		<input id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" type="checkbox" <?php checked( $instance['excerpt'] ); ?> />
 		<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>">
 			<?php _e( 'Display Excerpt', 'recent-posts-widget-extended' ); ?>

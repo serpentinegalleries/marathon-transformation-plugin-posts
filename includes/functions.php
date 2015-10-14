@@ -53,7 +53,11 @@ function rpwe_get_default_args() {
 		'cssID'            => '',
 		'css_class'        => '',
 		'before'           => '',
-		'after'            => ''
+		'after'            => '',
+
+		/* NEW ARGS */
+		'share_icons'      => false
+
 	);
 
 	// Allow plugins/themes developer to filter the default arguments.
@@ -155,16 +159,21 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '</div>';
 
-								$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
+								if ( $args['share_icons'] ) :
 
-									$html .= 'Share';
+											$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
 
-									$html .= '<p><a class="icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"></a></p>';
+												$html .= 'Share';
+
+												$html .= '<p><a class="icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"></a></p>';
 
 
-									$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
+												$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
 
-								$html .= '</div>';
+											$html .= '</div>';
+
+								endif;
+
 
 							$html .= '</div>';
 
