@@ -104,7 +104,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 	if ( $args['styles_default'] === false && ! empty( $args['css'] ) ) {
 		echo '<style>' . $args['css'] . '</style>';
 	}
-
+$html = '<hr>';
 	// Get the posts query.
 	$posts = rpwe_get_posts( $args );
 
@@ -159,7 +159,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '</div>';
 
-								if ( $args['share_icons'] ) :
+								if ( $args['share_icons	'] ) :
 
 											$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
 
