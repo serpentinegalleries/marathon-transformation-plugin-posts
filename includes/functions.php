@@ -104,7 +104,6 @@ function rpwe_get_recent_posts( $args = array() ) {
 	if ( $args['styles_default'] === false && ! empty( $args['css'] ) ) {
 		echo '<style>' . $args['css'] . '</style>';
 	}
-$html = '<hr>';
 	// Get the posts query.
 	$posts = rpwe_get_posts( $args );
 
@@ -145,7 +144,7 @@ $html = '<hr>';
 
 								$html .= '<div class="col-lg-2 col-lg-offset-2">';
 
-									$html .= '<div class="participant-hide"><h2>&times;</h2></div>';
+									$html .= '<div class="participant-hide"><i class="fa fa-chevron-down fa-2x participant-down"></i><i class="fa fa-chevron-up fa-2x participant-up"></i></div>';
 
 								$html .= '</div>';
 
