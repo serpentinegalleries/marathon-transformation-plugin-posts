@@ -129,7 +129,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							$html .= '<div class="row">';
 
-								$html .= '<div class="col-lg-8">';
+								$html .= '<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">';
 
 									$html .= '<h5><a id="' . sanitize_title(get_the_title()) . '" class="participant-title">' . esc_attr( get_the_title() ) . '</a></h5>';
 
@@ -142,7 +142,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '</div>';
 
-								$html .= '<div class="col-lg-2 col-lg-offset-2">';
+								$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-2 col-xs-2">';
 
 									$html .= '<div class="participant-hide"><i class="fa fa-chevron-down fa-2x participant-down"></i><i class="fa fa-chevron-up fa-2x participant-up"></i></div>';
 
@@ -164,7 +164,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 												$html .= 'Share';
 
-												$html .= '<p><a class="icon-facebook" href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"></a></p>';
+												$html .= '<p><a href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"><i class="fa fa-facebook"></i></a></p>';
 
 
 												$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
