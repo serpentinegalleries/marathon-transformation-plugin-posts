@@ -174,10 +174,10 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 												$html .= 'Share';
 
-												$html .= '<p><a href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"><i class="fa fa-facebook"></i></a></p>';
+												$html .= '<p><a href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#!'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"><i class="fa fa-facebook"></i></a></p>';
 
 
-												$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/#'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
+												$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/%23'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
 
 											$html .= '</div>';
 
