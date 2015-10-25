@@ -121,6 +121,8 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 					// Display the image url and crop using the resizer.
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
+					$videoLink = get_post_meta(get_the_ID(), 'video', true);
+					$videoLink = substr($videoLink, strrpos($videoLink, "=") + 1);
 
 					// Start recent posts markup.
 					$html .= '<div class="participant-text"><a class="participant-url" name="' . sanitize_title(get_the_title()). '"></a>';
@@ -154,11 +156,19 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-8">';
 
-									$html .= '<div class="participant-content">' . get_the_content() . '<br><a href="//' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a></div>';
+									$html .= '<div class="participant-content">' . get_the_content() . '<br><a href="//' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a>';
+
+									if ( $videoLink != '' ) :
+
+										$html .= '<div class="participant-media"><a class="participant-video" id="' . $videoLink . '" ><i class="fa fa-play"></i> &nbsp;watch</a></div>';
+									
+									endif;
+
+									$html .= '</div>';
 
 								$html .= '</div>';
 
-								if ( $args['share_icons	'] ) :
+								if ( $args['share_icons'] ) :
 
 											$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
 
