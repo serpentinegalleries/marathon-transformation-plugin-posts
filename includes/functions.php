@@ -123,6 +123,8 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
 					$videoLink = get_post_meta(get_the_ID(), 'video', true);
 					$videoLink = substr($videoLink, strrpos($videoLink, "=") + 1);
+					$audioLink = get_post_meta(get_the_ID(), 'audio', true);
+
 
 					// Start recent posts markup.
 					$html .= '<div class="participant-text"><a class="participant-url" name="' . sanitize_title(get_the_title()). '"></a>';
@@ -161,6 +163,12 @@ function rpwe_get_recent_posts( $args = array() ) {
 									if ( $videoLink != '' ) :
 
 										$html .= '<div class="participant-media"><a class="participant-video" id="' . $videoLink . '" ><i class="fa fa-play"></i> &nbsp;watch</a></div>';
+									
+									endif;
+
+									if ( $audioLink != '' ) :
+
+										$html .= '<div class="participant-media"><iframe width="70%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' . $audioLink . '&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=false&amp;color=4696ff&amp;theme_color=969696&amp;show_bpm=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe></div>';
 									
 									endif;
 
