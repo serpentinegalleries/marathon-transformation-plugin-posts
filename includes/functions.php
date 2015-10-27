@@ -168,7 +168,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 									if ( $audioLink != '' ) :
 
-										$html .= '<div class="participant-media"><iframe width="70%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' . $audioLink . '&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=false&amp;color=4696ff&amp;theme_color=969696&amp;show_bpm=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe></div>';
+										$html .= '<div class="participant-media"><iframe width="70%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' . $audioLink . '&amp;theme_color=969696&amp;auto_play=false&amp;hide_related=true&amp;show_artwork=false&amp;color=4696ff&amp;show_bpm=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false"></iframe></div>';
 									
 									endif;
 
