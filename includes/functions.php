@@ -127,7 +127,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 
 					// Start recent posts markup.
-					$html .= '<div class="participant-text"><a class="participant-url" name="' . sanitize_title(get_the_title()). '"></a>';
+					$html .= '<div class="participant"><a id="' . sanitize_title(get_the_title()) . '" class="participant-title"></a>';
 
 						$html .= '<div class="container">';
 
@@ -135,7 +135,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">';
 
-									$html .= '<h5><a id="' . sanitize_title(get_the_title()) . '" class="participant-title">' . esc_attr( get_the_title() ) . '</a></h5>';
+									$html .= '<h5><a>' . esc_attr( get_the_title() ) . '</a></h5>';
 
 
 									if ( $args['excerpt'] ) :
@@ -156,7 +156,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							$html .= '<div class="row participant-body">';
 
-								$html .= '<div class="col-lg-8">';
+								$html .= '<div class="col-lg-8 col-md-6 col-sm-6">';
 
 									$html .= '<div class="participant-content">' . get_the_content() . '<br><a href="//' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a>';
 
@@ -178,7 +178,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								if ( $args['share_icons'] ) :
 
-											$html .= '<div class="col-lg-2 col-lg-offset-2 share">';
+											$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-3 col-md-offset-3 col-sm-4 col-sm-ffset-2 share">';
 
 												$html .= 'Share';
 
