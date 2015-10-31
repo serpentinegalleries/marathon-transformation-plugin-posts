@@ -133,7 +133,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							$html .= '<div class="row">';
 
-								$html .= '<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">';
+								$html .= '<div class="col-lg-8 col-md-10 col-sm-10 col-xs-10">';
 
 									$html .= '<h5><a>' . esc_attr( get_the_title() ) . '</a></h5>';
 
@@ -146,7 +146,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								$html .= '</div>';
 
-								$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-2 col-xs-2">';
+								$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-1 col-md-offset-1 col-sm-2 col-xs-2">';
 
 									$html .= '<div class="participant-hide"><i class="fa fa-chevron-down fa-2x participant-down"></i><i class="fa fa-chevron-up fa-2x participant-up"></i></div>';
 
@@ -156,7 +156,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 							$html .= '<div class="row participant-body">';
 
-								$html .= '<div class="col-lg-8 col-md-6 col-sm-6">';
+								$html .= '<div class="col-lg-8 col-md-6 col-sm-9 col-xs-9">';
 
 									$html .= '<div class="participant-content">' . get_the_content() . '<br><a href="//' . get_post_meta(get_the_ID(), 'website', true) . '" target="_blank">' . get_post_meta(get_the_ID(), 'website', true) . '</a>';
 
@@ -178,14 +178,14 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 								if ( $args['share_icons'] ) :
 
-											$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-3 col-md-offset-3 col-sm-4 col-sm-ffset-2 share">';
+											$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-3 col-md-offset-3 col-sm-3 col-xs-3 share">';
 
 												$html .= 'Share';
 
 												$html .= '<p><a href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#!'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"><i class="fa fa-facebook"></i></a></p>';
 
 
-												$html .= '<p><a class="icon-twitter" href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/%23'. sanitize_title(get_the_title()) . '" target="_blank"></a></p>';
+												$html .= '<p><a href="http://twitter.com/intent/tweet?status='. get_the_title() .' - Transformation Marathon+http://radio.serpentinegalleries.org/%23'. sanitize_title(get_the_title()) . '" target="_blank"><i class="fa fa-twitter"></i></a></p>';
 
 											$html .= '</div>';
 
