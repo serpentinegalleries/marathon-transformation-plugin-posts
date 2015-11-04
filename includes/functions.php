@@ -179,7 +179,7 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 											$html .= '<div class="col-lg-2 col-lg-offset-2 col-md-1 col-md-offset-2 col-sm-2 col-xs-2 share">';
 
-												$html .= 'Share';
+												$html .= '<span class="share-text">Share</span>';
 
 												$html .= '<p><a href="http://www.facebook.com/sharer/sharer.php?u=http://radio.serpentinegalleries.org/#!'. sanitize_title(get_the_title()) .'&title=' . get_the_title() . ' - Transformation Marathon" target="_blank"><i class="fa fa-facebook"></i></a></p>';
 
