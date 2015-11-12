@@ -64,6 +64,20 @@ function rpwe_get_default_args() {
 	return apply_filters( 'rpwe_default_args', $defaults );
 
 }
+/* If posts alphabetical, order by last word in title */
+
+if ( $args['orderby'] == 'title' ) {
+
+	function mam_posts_orderby ($orderby) {
+	   global $mam_global_orderby;
+	   if ($mam_global_orderby) $orderby = $mam_global_orderby;
+	   return $orderby;
+	}
+	add_filter('posts_orderby','mam_posts_orderby');
+	$mam_global_orderby = "UPPER(CONCAT(REVERSE(SUBSTRING_INDEX(REVERSE($wpdb->posts.post_title),' ',1)),$wpdb->posts.post_title))";
+	$mam_global_orderby = '';
+
+}
 
 /**
  * Outputs the recent posts.
