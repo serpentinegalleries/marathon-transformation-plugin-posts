@@ -135,9 +135,9 @@ function rpwe_get_recent_posts( $args = array() ) {
 
 					// Display the image url and crop using the resizer.
 					$image    = rpwe_resize( $img_url, $args['thumb_width'], $args['thumb_height'], true );
-					$videoLink = get_post_meta(get_the_ID(), 'video', true);
+					$videoLink = get_post_meta(get_the_ID(), 'Video', true);
 					$videoLink = substr($videoLink, strrpos($videoLink, "=") + 1);
-					$audioLink = get_post_meta(get_the_ID(), 'audio', true);
+					$audioLink = get_post_meta(get_the_ID(), 'Audio', true);
 
 
 					// Start recent posts markup.
