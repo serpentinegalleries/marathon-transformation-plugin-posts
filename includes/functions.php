@@ -139,9 +139,12 @@ function rpwe_get_recent_posts( $args = array() ) {
 					$videoLink = substr($videoLink, strrpos($videoLink, "=") + 1);
 					$audioLink = get_post_meta(get_the_ID(), 'Audio', true);
 
+					$post_title_clean = sanitize_title(get_the_title());
+
+					$post_title_clean = str_replace("%e2%80%95", "-", $post_title_clean);
 
 					// Start recent posts markup.
-					$html .= '<div class="participant"><a id="' . sanitize_title(get_the_title()) . '" class="participant-title"></a>';
+					$html .= '<div class="participant"><a id="' . $post_title_clean . '" class="participant-title"></a>';
 
 						$html .= '<div class="container">';
 
